@@ -1,9 +1,7 @@
-{ pkgs, ... }:
+{pkgs, ...}: {
+  imports = [./hardware-configuration.nix];
 
-{
-  imports = [ ./hardware-configuration.nix ];
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -34,7 +32,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.xkb.layout = "se";
-  services.xserver.excludePackages = [ pkgs.xterm ];
+  services.xserver.excludePackages = [pkgs.xterm];
 
   # Configure console keymap
   console.keyMap = "sv-latin1";
@@ -56,30 +54,30 @@
   users.users.eric = {
     isNormalUser = true;
     description = "Eric Carlsson";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   programs.dconf.enable = true;
 
-  environment.gnome.excludePackages = (with pkgs;
-    [
+  environment.gnome.excludePackages =
+    (with pkgs; [
       gnome-tour
       gnome-user-docs
       gnome-connections
-    ]) ++ (with pkgs.gnome; [
-    gnome-backgrounds
-    gnome-contacts
-    gnome-music
-    gnome-maps
-    gnome-system-monitor
-    totem # Video player
-    epiphany # Web browser
-    geary # Email reader
-    yelp # Help reader
-    simple-scan # Document scanner
-    seahorse # Secret manager
-  ]);
-
+    ])
+    ++ (with pkgs.gnome; [
+      gnome-backgrounds
+      gnome-contacts
+      gnome-music
+      gnome-maps
+      gnome-system-monitor
+      totem # Video player
+      epiphany # Web browser
+      geary # Email reader
+      yelp # Help reader
+      simple-scan # Document scanner
+      seahorse # Secret manager
+    ]);
 
   documentation.nixos.enable = false;
 

@@ -1,6 +1,4 @@
-{ config, pkgs, nixpkgs, ... }:
-
-{
+{pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
 
   home.username = "eric";
@@ -71,8 +69,8 @@
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
         ];
-        www = [ "<Super>b" ];
-        home = [ "<Super>f" ];
+        www = ["<Super>b"];
+        home = ["<Super>f"];
       };
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
