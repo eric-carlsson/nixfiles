@@ -68,6 +68,7 @@
       "org/gnome/settings-daemon/plugins/media-keys" = {
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
         ];
         www = ["<Super>b"];
         home = ["<Super>f"];
@@ -77,6 +78,12 @@
         binding = "<Super>t";
         command = "kgx";
         name = "GNOME Console";
+      };
+
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+        binding = "<Super>c";
+        command = "code";
+        name = "VS Code";
       };
     };
   };
