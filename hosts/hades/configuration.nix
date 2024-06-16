@@ -59,31 +59,14 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-  programs.neovim.enable = true;
-  programs.git.enable = true;
+  programs.dconf.enable = true;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vscode
-    tree
-    wget
-    gh
-    alejandra
-    gnomeExtensions.pop-shell
-    gnomeExtensions.dash-to-dock
-  ];
-
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-tour
-    gnome-user-docs
-    gnome-connections
-  ]) ++ (with pkgs.gnome; [
+  environment.gnome.excludePackages = (with pkgs;
+    [
+      gnome-tour
+      gnome-user-docs
+      gnome-connections
+    ]) ++ (with pkgs.gnome; [
     gnome-backgrounds
     gnome-contacts
     gnome-music
@@ -97,51 +80,6 @@
     seahorse # Secret manager
   ]);
 
-  programs.dconf = {
-    enable = true;
-
-    profiles.user.databases = [{
-      settings = {
-        "org/gnome/desktop/interface" = {
-          enable-hot-corners = false;
-          color-scheme = "prefer-dark";
-          show-battery-percentage = true;
-        };
-
-        "org/gnome/desktop/wm/preferences".button-layout = ":minimize,close";
-
-        "org/gnome/mutter" = {
-          dynamic-workspaces = true;
-          workspaces-only-on-primary = true;
-        };
-
-        "org/gnome/shell".enabled-extensions = [
-          "pop-shell@system76.com"
-          "dash-to-dock@micxgx.gmail.com"
-        ];
-
-        "org/gnome/shell/extensions/dash-to-dock" = {
-          click-action = "focus-or-previews";
-          multi-monitor = true;
-          show-show-apps-button = false;
-        };
-
-        "org/gnome/settings-daemon/plugins/media-keys" = {
-          custom-keybindings = [
-            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-          ];
-          www = [ "<Super>b" ];
-          home = [ "<Super>f" ];
-        };
-
-        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-          binding = "<Super>t";
-          command = "kgx";
-          name = "GNOME Console";
-        };
-      };
-    }];
-  };
 
   documentation.nixos.enable = false;
 
