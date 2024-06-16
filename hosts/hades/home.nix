@@ -20,7 +20,10 @@
     vscode
     wget
     zip
+    nil
   ];
+
+  programs.firefox.enable = true;
 
   programs.git = {
     enable = true;
