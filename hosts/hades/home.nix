@@ -28,7 +28,7 @@
     userName = "Eric Carlsson";
     userEmail = "97894605+eric-carlsson@users.noreply.github.com";
     extraConfig = {
-      "credential \"https://github.com\"".helper = "!/usr/bin/gh auth git-credential";
+      "credential \"https://github.com\"".helper = "!gh auth git-credential";
       core.editor = "nvim";
       init.defaultBranch = "main";
     };
