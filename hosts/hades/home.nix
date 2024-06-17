@@ -35,7 +35,24 @@
 
     shellAliases = {
       k = "kubectl";
+      v = "nvim";
     };
+  };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    plugins = with pkgs.vimPlugins; [
+      vim-code-dark
+      autoclose-nvim
+    ];
+    extraLuaConfig = ''
+      vim.cmd[[colorscheme codedark]]
+      require("autoclose").setup()
+    '';
   };
 
   dconf = {
