@@ -10,8 +10,10 @@
     nixpkgs,
     home-manager,
     ...
-  }: {
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+  }: let
+    system = "x86_64-linux";
+  in {
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
 
     nixosConfigurations = {
       hades = nixpkgs.lib.nixosSystem {
@@ -21,6 +23,15 @@
           {
             home-manager.users.eric = import ./hosts/hades/home.nix;
           }
+        ];
+      };
+    };
+
+    homeConfigurations = {
+      "ecarls18@5CG2149Z4L" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        modules = [
+          ./hosts/5CG2149Z4L/home.nix
         ];
       };
     };
