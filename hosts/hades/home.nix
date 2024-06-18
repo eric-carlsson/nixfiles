@@ -118,6 +118,7 @@
         multi-monitor = true;
         show-show-apps-button = false;
         disable-overview-on-startup = true;
+        apply-custom-theme = true;
       };
 
       "org/gnome/settings-daemon/plugins/media-keys" = {
