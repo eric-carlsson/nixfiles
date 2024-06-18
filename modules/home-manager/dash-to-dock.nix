@@ -1,3 +1,5 @@
+# This module installs dash-to-dock and does some basic configuration
+# It should not be used on Ubuntu systems, as they come pre-configured
 {
   lib,
   config,

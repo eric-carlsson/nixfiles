@@ -6,12 +6,13 @@
   config = {
     nixpkgs.config.allowUnfree = true;
 
+    fonts.fontconfig.enable = true;
+
     home.packages = with pkgs; [
       alejandra # Nix formatter
       dnsutils
       fzf
       gh
-      gnomeExtensions.pop-shell
       jq
       kubectl
       tree
@@ -20,6 +21,8 @@
       wget
       zip
       nil # Nix language server
+      fira-code
+      fira-code-symbols
     ];
 
     programs.firefox.enable = true;
@@ -111,9 +114,10 @@
           workspaces-only-on-primary = true;
         };
 
-        "org/gnome/shell".enabled-extensions = [
-          "pop-shell@system76.com"
-        ];
+        "org/gnome/shell" = {
+          enabled-extensions = ["pop-shell@system76.com"];
+          favorite-apps = [];
+        };
 
         "org/gnome/settings-daemon/plugins/media-keys" = {
           custom-keybindings = [
@@ -122,12 +126,7 @@
           ];
           www = ["<Super>b"];
           home = ["<Super>f"];
-        };
-
-        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-          binding = "<Super>t";
-          command = "kgx";
-          name = "GNOME Console";
+          terminal = ["<Super>t"];
         };
 
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
@@ -139,6 +138,8 @@
         # Custom terminal theme based on Gogh Vs Code Dark+
         "org/gnome/terminal/legacy/profiles:/:88e1f5a3-af7a-4521-9cef-f4ca99337758" = {
           visible-name = "Vs Code Dark+";
+          font = "Fira Code 11";
+          audible-bell = false;
           background-color = "#1E1E1E1E1E1E";
           foreground-color = "#CCCCCCCCCCCC";
           cursor-colors-set = true;
@@ -169,7 +170,10 @@
           ];
           allow-bold = true;
         };
-        "org/gnome/terminal/legacy/profiles:".default = "88e1f5a3-af7a-4521-9cef-f4ca99337758";
+        "org/gnome/terminal/legacy/profiles:" = {
+          list = ["88e1f5a3-af7a-4521-9cef-f4ca99337758"];
+          default = "88e1f5a3-af7a-4521-9cef-f4ca99337758";
+        };
       };
     };
   };
