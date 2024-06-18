@@ -141,6 +141,41 @@
         command = "code";
         name = "VS Code";
       };
+
+      # Custom terminal theme based on Gogh Vs Code Dark+
+      "org/gnome/terminal/legacy/profiles:/:88e1f5a3-af7a-4521-9cef-f4ca99337758" = {
+        visible-name = "Vs Code Dark+";
+        background-color = "#1E1E1E1E1E1E";
+        foreground-color = "#CCCCCCCCCCCC";
+        cursor-colors-set = true;
+        cursor-background-color = "#CCCCCCCCCCCC";
+        cursor-foreground-color = "#1E1E1E1E1E1E";
+        bold-color = "#CCCCCCCCCCCC";
+        bold-color-same-as-fg = true;
+        use-theme-colors = false;
+        use-theme-background = false;
+        use-theme-transparency = false;
+        palette = [
+          "#6A6A78787A7A"
+          "#E9E965653B3B"
+          "#3939E9E9A8A8"
+          "#E5E5B6B68484"
+          "#4444AAAAE6E6"
+          "#E1E175759999"
+          "#3D3DD5D5E7E7"
+          "#C3C3DDDDE1E1"
+          "#595984848989"
+          "#E6E650502929"
+          "#0000FFFF9A9A"
+          "#E8E894944040"
+          "#00009A9AFBFB"
+          "#FFFF57578F8F"
+          "#5F5FFFFFFFFF"
+          "#D9D9FBFBFFFF"
+        ];
+        allow-bold = true;
+      };
+      "org/gnome/terminal/legacy/profiles:".default = "88e1f5a3-af7a-4521-9cef-f4ca99337758";
     };
   };
 
