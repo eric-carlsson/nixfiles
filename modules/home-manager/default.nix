@@ -41,11 +41,29 @@
     programs.bash = {
       enable = true;
       enableCompletion = true;
-
       shellAliases = {
         k = "kubectl";
         v = "nvim";
       };
+      sessionVariables = {
+        KUBE_EDITOR = "nvim";
+      };
+      initExtra = ''
+        # Enable completion for kubectl (and "k" alias)
+        source <(kubectl completion bash)
+        complete -o default -F __start_kubectl k
+
+        # Enable fzf bash integration
+        if command -v fzf-share >/dev/null; then
+          source "$(fzf-share)/key-bindings.bash"
+          source "$(fzf-share)/completion.bash"
+        fi
+
+        # Create or attach to "main" tmux session by default
+        if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+          exec tmux new-session -A -s main
+        fi
+      '';
     };
 
     programs.neovim = {
