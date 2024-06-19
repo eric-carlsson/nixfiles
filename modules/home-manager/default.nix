@@ -132,6 +132,8 @@
           workspaces-only-on-primary = true;
         };
 
+        "org/gnome/mutter/wayland/keybindings".restore-shortcuts = [];
+
         "org/gnome/shell" = {
           enabled-extensions = ["pop-shell@system76.com"];
           favorite-apps = [];
@@ -145,6 +147,7 @@
           www = ["<Super>b"];
           home = ["<Super>f"];
           terminal = ["<Super>t"];
+          screensaver = ["<Super>Escape"];
         };
 
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
