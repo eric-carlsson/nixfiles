@@ -1,6 +1,7 @@
 {
   pkgs,
   pkgs-e49db01,
+  pkgs-2bf9669,
   ...
 }: {
   imports = [
@@ -23,6 +24,9 @@
       ])
       ++ (with pkgs-e49db01; [
         gnomeExtensions.pop-shell
+      ])
+      ++ (with pkgs-2bf9669; [
+        terraform
       ]);
 
     home.pointerCursor = {
