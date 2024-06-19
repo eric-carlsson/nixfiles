@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   imports = [
     ./dash-to-dock.nix
   ];
@@ -8,22 +12,25 @@
 
     fonts.fontconfig.enable = true;
 
-    home.packages = with pkgs; [
-      alejandra # Nix formatter
-      dnsutils
-      fzf
-      gh
-      jq
-      kubectl
-      tree
-      unzip
-      vscode
-      wget
-      zip
-      nil # Nix language server
-      fira-code
-      fira-code-symbols
-    ];
+    home.packages =
+      (with pkgs; [
+        alejandra # Nix formatter
+        dnsutils
+        fzf
+        gh
+        jq
+        kubectl
+        tree
+        unzip
+        wget
+        zip
+        nil # Nix language server
+        fira-code
+        fira-code-symbols
+      ])
+      ++ (with pkgs-unstable; [
+        vscode # some extensions only work with up-to-date vscode
+      ]);
 
     programs.firefox.enable = true;
 
