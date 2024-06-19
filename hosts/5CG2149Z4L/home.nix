@@ -15,6 +15,11 @@
     home.packages =
       (with pkgs; [
         gnome-extension-manager
+        azure-cli
+        kubelogin
+        fluxcd
+        kubernetes-helm
+        slack
       ])
       ++ (with pkgs-e49db01; [
         gnomeExtensions.pop-shell
