@@ -25,6 +25,12 @@
         gnomeExtensions.pop-shell
       ]);
 
+    home.pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.vanilla-dmz;
+      name = "Vanilla-DMZ";
+    };
+
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         gtk-theme = "Yaru-dark";
