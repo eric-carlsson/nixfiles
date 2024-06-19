@@ -3,10 +3,6 @@
   pkgs-unstable,
   ...
 }: {
-  imports = [
-    ./dash-to-dock.nix
-  ];
-
   config = {
     nixpkgs.config.allowUnfree = true;
 
