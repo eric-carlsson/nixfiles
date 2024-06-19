@@ -13,6 +13,7 @@
     nixpkgs-2bf9669.url = "github:nixos/nixpkgs/2bf96698281d49ec9002e180b577b19353c3d806";
 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -24,6 +25,16 @@
     ...
   }: let
     system = "x86_64-linux";
+
+    nixpkgsConfig = {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
+    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs-unstable = import nixpkgs-unstable nixpkgsConfig;
+    pkgs-e49db01 = import nixpkgs-e49db01 nixpkgsConfig;
+    pkgs-2bf9669 = import nixpkgs-2bf9669 nixpkgsConfig;
   in {
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
 
@@ -33,7 +44,12 @@
           ./hosts/hades/configuration.nix
           home-manager.nixosModules.home-manager
           {
-            home-manager.users.eric = import ./hosts/hades/home.nix;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {inherit pkgs-unstable;};
+              users.eric = import ./hosts/hades/home.nix;
+            };
           }
         ];
       };
@@ -41,18 +57,8 @@
 
     homeConfigurations = {
       "ecarls18@5CG2149Z4L" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = {
-          pkgs-unstable = import nixpkgs-unstable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-          pkgs-e49db01 = import nixpkgs-e49db01 {inherit system;};
-          pkgs-2bf9669 = import nixpkgs-2bf9669 {
-            inherit system;
-            config.allowUnfree = true;
-          };
-        };
+        inherit pkgs;
+        extraSpecialArgs = {inherit pkgs-unstable pkgs-e49db01 pkgs-2bf9669;};
         modules = [
           ./hosts/5CG2149Z4L/home.nix
         ];
