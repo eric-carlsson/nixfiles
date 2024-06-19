@@ -12,9 +12,13 @@
     home.homeDirectory = "/home/ecarls18";
     home.stateVersion = "24.05";
 
-    home.packages = with pkgs-e49db01; [
-      gnomeExtensions.pop-shell
-    ];
+    home.packages =
+      (with pkgs; [
+        gnome-extension-manager
+      ])
+      ++ (with pkgs-e49db01; [
+        gnomeExtensions.pop-shell
+      ]);
 
     dconf.settings = {
       "org/gnome/desktop/interface" = {
@@ -30,6 +34,9 @@
         multi-monitor = true;
         show-show-apps-button = false;
       };
+
+      # DING is enabled by default
+      "org/gnome/shell".disabled-extensions = ["ding@rastersoft.com"];
     };
   };
 }
