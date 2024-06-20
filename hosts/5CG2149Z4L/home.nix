@@ -34,6 +34,7 @@
       gtk.enable = true;
       package = pkgs.vanilla-dmz;
       name = "Vanilla-DMZ";
+      size = 24;
     };
 
     programs.bash.shellAliases = {
