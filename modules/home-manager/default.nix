@@ -21,6 +21,7 @@
         nil # Nix language server
         fira-code
         fira-code-symbols
+        gimp
       ])
       ++ (with pkgs-unstable; [
         vscode # some extensions only work with up-to-date vscode

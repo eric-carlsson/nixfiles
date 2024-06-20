@@ -31,7 +31,7 @@
       config.allowUnfree = true;
     };
 
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs nixpkgsConfig;
     pkgs-unstable = import nixpkgs-unstable nixpkgsConfig;
     pkgs-e49db01 = import nixpkgs-e49db01 nixpkgsConfig;
     pkgs-2bf9669 = import nixpkgs-2bf9669 nixpkgsConfig;
