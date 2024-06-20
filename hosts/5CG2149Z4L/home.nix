@@ -35,6 +35,10 @@
       name = "Vanilla-DMZ";
     };
 
+    programs.bash.shellAliases = {
+      t = "terraform";
+    };
+
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         gtk-theme = "Yaru-dark";
