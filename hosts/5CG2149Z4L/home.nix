@@ -62,6 +62,11 @@
       "org/gnome/settings-daemon/plugins/media-keys" = {
         terminal = ["<Super>t"];
       };
+
+      "org/gnome/mutter/keybindings" = {
+        toggle-tiled-left = [];
+        toggle-tiled-right = [];
+      };
     };
 
     # Extra bash configuration derived from Ubuntu defaults
