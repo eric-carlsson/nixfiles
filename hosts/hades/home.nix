@@ -21,6 +21,7 @@
         ];
 
         "org/gnome/shell/extensions/dash-to-dock" = {
+          show-trash = false;
           click-action = "focus-or-previews";
           multi-monitor = true;
           show-show-apps-button = false;
