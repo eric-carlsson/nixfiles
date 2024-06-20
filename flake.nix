@@ -36,7 +36,7 @@
     pkgs-e49db01 = import nixpkgs-e49db01 nixpkgsConfig;
     pkgs-2bf9669 = import nixpkgs-2bf9669 nixpkgsConfig;
   in {
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+    formatter.${system} = pkgs.alejandra;
 
     nixosConfigurations = {
       hades = nixpkgs.lib.nixosSystem {
