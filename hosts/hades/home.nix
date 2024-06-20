@@ -27,6 +27,18 @@
           disable-overview-on-startup = true;
           apply-custom-theme = true;
         };
+
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+          binding = "<Super>t";
+          command = "kgx";
+          name = "GNOME console";
+        };
+
+        "org/gnome/settings-daemon/plugins/media-keys" = {
+          custom-keybindings = [
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+          ];
+        };
       };
     };
   };

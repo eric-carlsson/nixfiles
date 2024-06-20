@@ -52,6 +52,10 @@
 
       # DING is enabled by default
       "org/gnome/shell".disabled-extensions = ["ding@rastersoft.com"];
+
+      "org/gnome/settings-daemon/plugins/media-keys" = {
+        terminal = ["<Super>t"];
+      };
     };
 
     # Extra bash configuration derived from Ubuntu defaults
