@@ -126,6 +126,8 @@
 
         "org/gnome/desktop/wm/preferences".button-layout = ":minimize,close";
 
+        "org/gnome/desktop/wm/keybindings".show-desktop = ["<Super>d"];
+
         "org/gnome/desktop/search-providers".disabled = [
           "org.gnome.Characters.desktop"
           "org.gnome.clocks.desktop"
