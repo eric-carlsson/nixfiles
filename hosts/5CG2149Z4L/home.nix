@@ -20,6 +20,7 @@
         kubelogin
         fluxcd
         kubernetes-helm
+        kubectl
         slack
       ])
       ++ (with pkgs-e49db01; [
@@ -37,6 +38,7 @@
 
     programs.bash.shellAliases = {
       t = "terraform";
+      k = "kubectl";
     };
 
     dconf.settings = {

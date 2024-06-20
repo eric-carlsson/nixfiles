@@ -13,7 +13,6 @@
         fzf
         gh
         jq
-        kubectl
         tree
         unzip
         wget
@@ -44,7 +43,6 @@
       enable = true;
       enableCompletion = true;
       shellAliases = {
-        k = "kubectl";
         v = "nvim";
       };
       sessionVariables = {
