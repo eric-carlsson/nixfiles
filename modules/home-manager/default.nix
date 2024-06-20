@@ -133,6 +133,11 @@
 
         "org/gnome/mutter/wayland/keybindings".restore-shortcuts = [];
 
+        "org/gnome/mutter/keybindings" = {
+          toggle-tiled-left = [];
+          toggle-tiled-right = [];
+        };
+
         "org/gnome/shell" = {
           enabled-extensions = ["pop-shell@system76.com"];
           favorite-apps = [];
