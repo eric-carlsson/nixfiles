@@ -126,6 +126,11 @@
 
         "org/gnome/desktop/wm/preferences".button-layout = ":minimize,close";
 
+        "org/gnome/desktop/search-providers".disabled = [
+          "org.gnome.Characters.desktop"
+          "org.gnome.clocks.desktop"
+        ];
+
         "org/gnome/mutter" = {
           dynamic-workspaces = true;
           workspaces-only-on-primary = true;
