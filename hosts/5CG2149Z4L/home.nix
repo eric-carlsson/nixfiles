@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   pkgs-e49db01,
   pkgs-2bf9669,
   ...
@@ -16,12 +17,14 @@
     home.packages =
       (with pkgs; [
         gnome-extension-manager
-        azure-cli
         kubelogin
         fluxcd
         kubernetes-helm
         kubectl
         slack
+      ])
+      ++ (with pkgs-unstable; [
+        azure-cli
       ])
       ++ (with pkgs-e49db01; [
         gnomeExtensions.pop-shell
