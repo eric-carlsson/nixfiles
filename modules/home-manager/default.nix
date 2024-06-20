@@ -20,6 +20,7 @@
         fira-code
         fira-code-symbols
         gimp
+        xsel
       ])
       ++ (with pkgs-unstable; [
         vscode # some extensions only work with up-to-date vscode
