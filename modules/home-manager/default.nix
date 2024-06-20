@@ -10,7 +10,6 @@
       (with pkgs; [
         alejandra # Nix formatter
         dnsutils
-        fzf
         gh
         jq
         tree
@@ -39,6 +38,11 @@
       };
     };
 
+    programs.fzf = {
+      enable = true;
+      enableBashIntegration = true;
+    };
+
     programs.bash = {
       enable = true;
       enableCompletion = true;
@@ -52,12 +56,6 @@
         # Enable completion for kubectl (and "k" alias)
         source <(kubectl completion bash)
         complete -o default -F __start_kubectl k
-
-        # Enable fzf bash integration
-        if command -v fzf-share >/dev/null; then
-          source "$(fzf-share)/key-bindings.bash"
-          source "$(fzf-share)/completion.bash"
-        fi
 
         # Create or attach to "main" tmux session by default
         if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
