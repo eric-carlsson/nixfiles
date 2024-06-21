@@ -47,17 +47,12 @@
     programs.bash = {
       enable = true;
       enableCompletion = true;
+
       shellAliases = {
         v = "nvim";
       };
-      sessionVariables = {
-        KUBE_EDITOR = "nvim";
-      };
-      initExtra = ''
-        # Enable completion for kubectl (and "k" alias)
-        source <(kubectl completion bash)
-        complete -o default -F __start_kubectl k
 
+      initExtra = ''
         # Create or attach to "main" tmux session by default
         if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
           exec tmux new-session -A -s main
