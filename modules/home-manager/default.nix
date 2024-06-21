@@ -76,20 +76,7 @@
       '';
     };
 
-    programs.tmux = let
-      tmux-dark-plus-theme =
-        pkgs.tmuxPlugins.mkTmuxPlugin
-        {
-          pluginName = "dark-plus";
-          version = "1";
-          src = pkgs.fetchFromGitHub {
-            owner = "khanghh";
-            repo = "tmux-dark-plus-theme";
-            rev = "3397e622a52c72e5ba92776f02d6ff560ef7bd2a";
-            sha256 = "sha256-IqyJd6Sm95l4Gf0F54OIcBgOskeL2CqJvpopJJMsc1Q=";
-          };
-        };
-    in {
+    programs.tmux = {
       enable = true;
       baseIndex = 1; # Makes it easier to switch panels and windows
       clock24 = true;
@@ -99,9 +86,11 @@
       terminal = "screen-256color";
       plugins = with pkgs; [
         tmuxPlugins.yank
-        tmux-dark-plus-theme
       ];
       extraConfig = ''
+        set -g status-style bg=#181818,fg=white
+        set -g status-right ""
+
         # split window into cwd
         bind '"' split-window -v -c "#{pane_current_path}"
         bind % split-window -h -c "#{pane_current_path}"
