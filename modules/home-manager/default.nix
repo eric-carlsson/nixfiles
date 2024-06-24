@@ -105,7 +105,7 @@
         tmuxPlugins.yank
       ];
       extraConfig = ''
-        set -g status-style bg=#181818,fg=white
+        set -g status-style bg=#3a3a3a,fg=default
         set -g status-right ""
 
         # split window into cwd
@@ -181,6 +181,7 @@
           use-theme-colors = false;
           use-theme-background = false;
           use-theme-transparency = false;
+	  scrollbar-policy = "never";
           palette = [
             "#6A6A78787A7A"
             "#E9E965653B3B"
