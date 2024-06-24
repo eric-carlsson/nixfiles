@@ -105,7 +105,7 @@
         tmuxPlugins.yank
       ];
       extraConfig = ''
-        set -g status-style bg=#3a3a3a,fg=default
+        set -g status-style bg=#161616,fg=default
         set -g status-right ""
 
         # split window into cwd
