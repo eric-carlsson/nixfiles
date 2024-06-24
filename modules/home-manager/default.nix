@@ -106,7 +106,7 @@
       ];
       extraConfig = ''
         set -as terminal-features ",xterm*:RGB"
-        set -g status-style bg=#161616,fg=default
+        set -g status-style bg=#181818,fg=default
         set -g status-right ""
 
         # split window into cwd
