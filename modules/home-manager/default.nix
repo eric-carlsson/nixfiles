@@ -100,11 +100,12 @@
       keyMode = "vi";
       mouse = true;
       prefix = "C-Space";
-      terminal = "screen-256color";
+      terminal = "xterm-256color";
       plugins = with pkgs; [
         tmuxPlugins.yank
       ];
       extraConfig = ''
+        set -as terminal-features ",xterm*:RGB"
         set -g status-style bg=#161616,fg=default
         set -g status-right ""
 
