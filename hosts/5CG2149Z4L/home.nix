@@ -22,6 +22,7 @@
         kubernetes-helm
         kubectl
         slack
+        k9s
       ])
       ++ (with pkgs-unstable; [
         azure-cli
