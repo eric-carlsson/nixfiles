@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   imports = [./hardware-configuration.nix];
 
+  nixpkgs.config.allowUnfree = true;
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Bootloader
@@ -58,6 +60,15 @@
   };
 
   programs.dconf.enable = true;
+
+  programs.steam = {
+    enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    godot_4
+    aseprite
+  ];
 
   environment.gnome.excludePackages =
     (with pkgs; [
