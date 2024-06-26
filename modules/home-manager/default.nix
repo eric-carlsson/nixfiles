@@ -152,6 +152,16 @@
           favorite-apps = [];
         };
 
+        "org/gnome/shell/extensions/pop-shell" = {
+          stacking-with-mouse = false;
+
+          # Unbind interfering vim keys
+          focus-left = ["<Super>Left" "<Super>KP_Left"];
+          focus-down = ["<Super>Down" "<Super>KP_Down"];
+          focus-right = ["<Super>Right" "<Super>KP_Right"];
+          focus-up = ["<Super>Up" "<Super>KP_Up"];
+        };
+
         "org/gnome/settings-daemon/plugins/media-keys" = {
           custom-keybindings = [
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
@@ -182,7 +192,7 @@
           use-theme-colors = false;
           use-theme-background = false;
           use-theme-transparency = false;
-	  scrollbar-policy = "never";
+          scrollbar-policy = "never";
           palette = [
             "#6A6A78787A7A"
             "#E9E965653B3B"
