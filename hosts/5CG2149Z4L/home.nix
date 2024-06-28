@@ -3,6 +3,7 @@
   pkgs-unstable,
   pkgs-e49db01,
   pkgs-2bf9669,
+  pkgs-3ec56f6,
   ...
 }: {
   imports = [
@@ -18,7 +19,6 @@
       (with pkgs; [
         gnome-extension-manager
         kubelogin
-        fluxcd
         kubernetes-helm
         kubectl
         slack
@@ -32,6 +32,9 @@
       ])
       ++ (with pkgs-2bf9669; [
         terraform
+      ])
+      ++ (with pkgs-3ec56f6; [
+        fluxcd
       ]);
 
     home.pointerCursor = {
