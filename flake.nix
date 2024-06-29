@@ -17,6 +17,9 @@
 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixvim.url = "github:nix-community/nixvim/nixos-24.05";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -26,6 +29,7 @@
     nixpkgs-2bf9669,
     nixpkgs-3ec56f6,
     home-manager,
+    nixvim,
     ...
   }: let
     system = "x86_64-linux";
@@ -53,6 +57,9 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = {inherit pkgs-unstable;};
+              sharedModules = [
+                nixvim.homeManagerModules.nixvim
+              ];
               users.eric = import ./hosts/hades/home.nix;
             };
           }
@@ -65,6 +72,7 @@
         inherit pkgs;
         extraSpecialArgs = {inherit pkgs-unstable pkgs-e49db01 pkgs-2bf9669 pkgs-3ec56f6;};
         modules = [
+          nixvim.homeManagerModules.nixvim
           ./hosts/5CG2149Z4L/home.nix
         ];
       };

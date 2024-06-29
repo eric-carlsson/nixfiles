@@ -3,6 +3,10 @@
   pkgs-unstable,
   ...
 }: {
+  imports = [
+    ./neovim.nix
+  ];
+
   config = {
     fonts.fontconfig.enable = true;
 
@@ -54,6 +58,8 @@
       recursive = true;
     };
 
+    neovim.enable = true;
+
     programs.bash = {
       enable = true;
       enableCompletion = true;
@@ -74,22 +80,6 @@
         if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
           exec tmux new-session -A -s main
         fi
-      '';
-    };
-
-    programs.neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-      plugins = with pkgs.vimPlugins; [
-        vim-code-dark
-        autoclose-nvim
-      ];
-      extraLuaConfig = ''
-        vim.cmd[[colorscheme codedark]]
-        require("autoclose").setup()
       '';
     };
 
