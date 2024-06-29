@@ -1,10 +1,14 @@
 {
+  lib,
   pkgs,
   pkgs-unstable,
   ...
 }: {
   imports = [
+    ./bash.nix
+    ./git.nix
     ./neovim.nix
+    ./tmux.nix
   ];
 
   config = {
@@ -30,82 +34,13 @@
         vscode # some extensions only work with up-to-date vscode
       ]);
 
-    programs.firefox.enable = true;
+    programs.firefox.enable = lib.mkDefault true;
+    programs.home-manager.enable = lib.mkDefault true;
 
-    programs.git = {
-      enable = true;
-      userName = "Eric Carlsson";
-      userEmail = "97894605+eric-carlsson@users.noreply.github.com";
-      extraConfig = {
-        "credential \"https://github.com\"".helper = "!gh auth git-credential";
-        core.editor = "nvim";
-        init.defaultBranch = "main";
-      };
-    };
-
-    programs.fzf = {
-      enable = true;
-      enableBashIntegration = true;
-    };
-
-    home.file.".config/bash/bash-git-prompt" = {
-      source = pkgs.fetchFromGitHub {
-        owner = "magicmonty";
-        repo = "bash-git-prompt";
-        rev = "51080c22b2cebb63111379f4eacd22cda199684b";
-        sha256 = "sha256-eKh0fNkKi3tLa98uVIsL70+1mA1NMgBwJ1AbtAIPK1o=";
-      };
-      recursive = true;
-    };
-
-    neovim.enable = true;
-
-    programs.bash = {
-      enable = true;
-      enableCompletion = true;
-
-      shellAliases = {
-        v = "nvim";
-      };
-
-      sessionVariables = {
-        GIT_PROMPT_ONLY_IN_REPO = 1;
-      };
-
-      initExtra = ''
-        # Add git prompt
-        source ~/.config/bash/bash-git-prompt/gitprompt.sh
-
-        # Create or attach to "main" tmux session by default
-        if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-          exec tmux new-session -A -s main
-        fi
-      '';
-    };
-
-    programs.tmux = {
-      enable = true;
-      baseIndex = 1; # Makes it easier to switch panels and windows
-      clock24 = true;
-      keyMode = "vi";
-      mouse = true;
-      prefix = "C-Space";
-      terminal = "xterm-256color";
-      plugins = with pkgs; [
-        tmuxPlugins.yank
-      ];
-      extraConfig = ''
-        set -as terminal-features ",xterm*:RGB"
-        set -g status-style bg=#181818,fg=default
-        set -g status-right ""
-
-        # split window into cwd
-        bind '"' split-window -v -c "#{pane_current_path}"
-        bind % split-window -h -c "#{pane_current_path}"
-      '';
-    };
-
-    programs.home-manager.enable = true;
+    bash.enable = lib.mkDefault true;
+    git.enable = lib.mkDefault true;
+    neovim.enable = lib.mkDefault true;
+    tmux.enable = lib.mkDefault true;
 
     dconf = {
       enable = true;
