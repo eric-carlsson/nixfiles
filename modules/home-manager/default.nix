@@ -29,6 +29,8 @@
         fira-code-symbols
         gimp
         xsel
+        ripgrep
+        fd
       ])
       ++ (with pkgs-unstable; [
         vscode # some extensions only work with up-to-date vscode

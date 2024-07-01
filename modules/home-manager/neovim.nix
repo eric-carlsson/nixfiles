@@ -14,6 +14,8 @@
 
     colorschemes.vscode.enable = true;
 
+    globals.mapleader = ",";
+
     opts = {
       number = true;
       incsearch = true;
@@ -35,6 +37,26 @@
         };
       };
       lsp-format.enable = true;
+      which-key.enable = true;
+      telescope = {
+        enable = true;
+        extensions = {
+          fzf-native = {
+            enable = true;
+          };
+        };
+        keymaps = {
+          "<leader>ff" = {
+            action = "find_files";
+            options.desc = "Find files with telescope";
+          };
+          "<leader>fw" = {
+            action = "live_grep";
+            options.desc = "Find text with telescope";
+          };
+        };
+      };
+      treesitter.enable = true;
     };
   };
 }
