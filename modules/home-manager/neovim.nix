@@ -44,6 +44,20 @@
         };
       };
       comment.enable = true;
+      indent-blankline = {
+        enable = true;
+        settings = {
+          indent = {
+            char = "▏";
+          };
+          scope = {
+            char = "▎";
+            show_end = false;
+            show_exact_scope = true;
+            show_start = false;
+          };
+        };
+      };
       lsp = {
         enable = true;
         servers = {
@@ -51,6 +65,7 @@
             enable = true;
             settings.formatting.command = ["alejandra"];
           };
+          yamlls.enable = true;
         };
       };
       lsp-format.enable = true;
