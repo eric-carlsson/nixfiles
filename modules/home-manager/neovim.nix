@@ -27,6 +27,23 @@
     };
 
     plugins = {
+      cmp = {
+        enable = true;
+        autoEnableSources = true;
+        settings = {
+          sources = [
+            {name = "nvim_lsp";}
+          ];
+          mapping = {
+            "<S-d>" = "cmp.mapping.scroll_docs(-4)";
+            "<S-f>" = "cmp.mapping.scroll_docs(4)";
+            "<S-e>" = "cmp.mapping.close()";
+            "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+            "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+          };
+        };
+      };
+      comment.enable = true;
       lsp = {
         enable = true;
         servers = {
@@ -37,7 +54,7 @@
         };
       };
       lsp-format.enable = true;
-      which-key.enable = true;
+      nvim-autopairs.enable = true;
       telescope = {
         enable = true;
         extensions = {
