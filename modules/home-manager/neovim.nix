@@ -66,6 +66,7 @@
             settings.formatting.command = ["alejandra"];
           };
           yamlls.enable = true;
+          bashls.enable = true;
         };
       };
       lsp-format.enable = true;
