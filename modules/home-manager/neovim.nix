@@ -70,6 +70,14 @@
         };
       };
       lsp-format.enable = true;
+      none-ls = {
+        enable = true;
+        sources = {
+          formatting = {
+            shfmt.enable = true;
+          };
+        };
+      };
       nvim-autopairs.enable = true;
       telescope = {
         enable = true;
