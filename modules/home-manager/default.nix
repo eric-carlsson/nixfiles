@@ -19,6 +19,7 @@
         alejandra # Nix formatter
         dnsutils
         gh
+        git-absorb
         jq
         tree
         unzip
