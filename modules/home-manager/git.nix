@@ -9,6 +9,14 @@
     enable = true;
     userName = "Eric Carlsson";
     userEmail = "97894605+eric-carlsson@users.noreply.github.com";
+
+    aliases = {
+      "pu" = "push -u origin HEAD";
+      "pf" = "push --force-with-lease";
+      "fm" = "fetch origin main:main";
+      "rbm" = "rebase main";
+    };
+
     extraConfig = {
       "credential \"https://github.com\"".helper = "!gh auth git-credential";
       core.editor = "nvim";
