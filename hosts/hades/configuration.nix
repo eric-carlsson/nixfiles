@@ -61,9 +61,11 @@
 
   programs.dconf.enable = true;
 
-  programs.steam = {
-    enable = true;
-  };
+  programs.steam.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    bitwarden
+  ];
 
   environment.gnome.excludePackages =
     (with pkgs; [
