@@ -65,11 +65,6 @@
     enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    godot_4
-    aseprite
-  ];
-
   environment.gnome.excludePackages =
     (with pkgs; [
       gnome-tour
