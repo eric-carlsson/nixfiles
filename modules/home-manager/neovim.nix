@@ -68,6 +68,7 @@
           yamlls.enable = true;
           bashls.enable = true;
           terraformls.enable = true;
+          gopls.enable = true;
         };
       };
       lsp-format.enable = true;

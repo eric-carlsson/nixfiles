@@ -33,6 +33,8 @@
         ripgrep
         fd
         go
+        gotools
+        golangci-lint
       ])
       ++ (with pkgs-unstable; [
         vscode # some extensions only work with up-to-date vscode
