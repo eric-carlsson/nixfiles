@@ -20,7 +20,7 @@
     extraConfig = ''
       set -as terminal-features ",xterm*:RGB"
       set -g status-style bg=#181818,fg=default
-      set -g status-right ""
+      set -g status-right "#( compact-git-status --path #{pane_current_path} )"
 
       # split window into cwd
       bind '"' split-window -v -c "#{pane_current_path}"

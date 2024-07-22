@@ -38,6 +38,7 @@
         config.allowUnfree = true;
         overlays = [
           outputs.overlays.pkgPins
+          outputs.overlays.pkgAdditions
         ];
       };
     };
@@ -45,6 +46,8 @@
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
 
     overlays = import ./overlays {inherit inputs;};
+
+    packages.${system} = import ./pkgs nixpkgs.legacyPackages.${system};
 
     nixosConfigurations = {
       hades = nixpkgs.lib.nixosSystem {

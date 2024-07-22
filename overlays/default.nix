@@ -15,4 +15,6 @@
     terraform = inputs.nixpkgs-2bf9669.legacyPackages.${final.system}.terraform;
     fluxcd = inputs.nixpkgs-3ec56f6.legacyPackages.${final.system}.fluxcd;
   };
+
+  pkgAdditions = final: prev: import ../pkgs final.pkgs;
 }
