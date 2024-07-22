@@ -33,12 +33,12 @@
 
     system = "x86_64-linux";
 
-    nixpkgsConfig = {
+    sharedNixpkgsConfig = {
       nixpkgs = {
         config.allowUnfree = true;
         overlays = [
-          outputs.overlays.pkgPins
-          outputs.overlays.pkgAdditions
+          outputs.overlays.sharedPkgPins
+          outputs.overlays.sharedPkgAdditions
         ];
       };
     };
@@ -52,7 +52,7 @@
     nixosConfigurations = {
       hades = nixpkgs.lib.nixosSystem {
         modules = [
-          nixpkgsConfig
+          sharedNixpkgsConfig
           ./hosts/hades/configuration.nix
           home-manager.nixosModules.home-manager
           {
@@ -73,7 +73,8 @@
       "ecarls18@5CG2149Z4L" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [
-          nixpkgsConfig
+          sharedNixpkgsConfig
+          {nixpkgs.overlays = [outputs.overlays.gnome42Pins];}
           nixvim.homeManagerModules.nixvim
           ./hosts/5CG2149Z4L/home.nix
         ];
