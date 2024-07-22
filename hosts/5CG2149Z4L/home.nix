@@ -1,11 +1,4 @@
-{
-  pkgs,
-  pkgs-unstable,
-  pkgs-e49db01,
-  pkgs-2bf9669,
-  pkgs-3ec56f6,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ../../modules/home-manager/default.nix
   ];
@@ -15,27 +8,18 @@
     home.homeDirectory = "/home/ecarls18";
     home.stateVersion = "24.05";
 
-    home.packages =
-      (with pkgs; [
-        gnome-extension-manager
-        kubelogin
-        kubernetes-helm
-        kubectl
-        slack
-        k9s
-      ])
-      ++ (with pkgs-unstable; [
-        azure-cli
-      ])
-      ++ (with pkgs-e49db01; [
-        gnomeExtensions.pop-shell
-      ])
-      ++ (with pkgs-2bf9669; [
-        terraform
-      ])
-      ++ (with pkgs-3ec56f6; [
-        fluxcd
-      ]);
+    home.packages = with pkgs; [
+      gnome-extension-manager
+      kubelogin
+      kubernetes-helm
+      kubectl
+      slack
+      k9s
+      azure-cli
+      gnomeExtensions.pop-shell
+      terraform
+      fluxcd
+    ];
 
     home.pointerCursor = {
       gtk.enable = true;

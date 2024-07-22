@@ -23,40 +23,39 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
-    nixpkgs-unstable,
-    nixpkgs-e49db01,
-    nixpkgs-2bf9669,
-    nixpkgs-3ec56f6,
     home-manager,
     nixvim,
     ...
-  }: let
+  } @ inputs: let
+    inherit (self) outputs;
+
     system = "x86_64-linux";
 
     nixpkgsConfig = {
-      inherit system;
-      config.allowUnfree = true;
+      nixpkgs = {
+        config.allowUnfree = true;
+        overlays = [
+          outputs.overlays.pkgPins
+        ];
+      };
     };
-
-    pkgs = import nixpkgs nixpkgsConfig;
-    pkgs-unstable = import nixpkgs-unstable nixpkgsConfig;
-    pkgs-e49db01 = import nixpkgs-e49db01 nixpkgsConfig;
-    pkgs-2bf9669 = import nixpkgs-2bf9669 nixpkgsConfig;
-    pkgs-3ec56f6 = import nixpkgs-3ec56f6 nixpkgsConfig;
   in {
-    formatter.${system} = pkgs.alejandra;
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+
+    overlays = import ./overlays {inherit inputs;};
 
     nixosConfigurations = {
       hades = nixpkgs.lib.nixosSystem {
         modules = [
+          nixpkgsConfig
           ./hosts/hades/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = {inherit pkgs-unstable;};
               sharedModules = [
                 nixvim.homeManagerModules.nixvim
               ];
@@ -69,9 +68,9 @@
 
     homeConfigurations = {
       "ecarls18@5CG2149Z4L" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {inherit pkgs-unstable pkgs-e49db01 pkgs-2bf9669 pkgs-3ec56f6;};
+        pkgs = nixpkgs.legacyPackages.${system};
         modules = [
+          nixpkgsConfig
           nixvim.homeManagerModules.nixvim
           ./hosts/5CG2149Z4L/home.nix
         ];

@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  pkgs-unstable,
   ...
 }: {
   imports = [
@@ -14,31 +13,28 @@
   config = {
     fonts.fontconfig.enable = true;
 
-    home.packages =
-      (with pkgs; [
-        alejandra # Nix formatter
-        dnsutils
-        gh
-        git-absorb
-        jq
-        tree
-        unzip
-        wget
-        zip
-        nil # Nix language server
-        fira-code
-        fira-code-symbols
-        gimp
-        xsel
-        ripgrep
-        fd
-        go
-        gotools
-        golangci-lint
-      ])
-      ++ (with pkgs-unstable; [
-        vscode # some extensions only work with up-to-date vscode
-      ]);
+    home.packages = with pkgs; [
+      alejandra # Nix formatter
+      dnsutils
+      gh
+      git-absorb
+      jq
+      tree
+      unzip
+      wget
+      zip
+      nil # Nix language server
+      fira-code
+      fira-code-symbols
+      gimp
+      xsel
+      ripgrep
+      fd
+      go
+      gotools
+      golangci-lint
+      vscode
+    ];
 
     programs.firefox.enable = lib.mkDefault true;
     programs.home-manager.enable = lib.mkDefault true;
