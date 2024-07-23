@@ -74,7 +74,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [
           sharedNixpkgsConfig
-          {nixpkgs.overlays = [outputs.overlays.gnome42Pins];}
+          {nixpkgs.overlays = [outputs.overlays.gnome42PkgPins];}
           nixvim.homeManagerModules.nixvim
           ./hosts/5CG2149Z4L/home.nix
         ];
