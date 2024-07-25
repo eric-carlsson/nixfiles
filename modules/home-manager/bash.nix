@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: {
   options.bash.enable = lib.mkEnableOption "Enable bash";

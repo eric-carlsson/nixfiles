@@ -34,7 +34,6 @@
       gotools
       golangci-lint
       vscode
-      compact-git-status
     ];
 
     programs.firefox.enable = lib.mkDefault true;
