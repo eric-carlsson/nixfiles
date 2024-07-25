@@ -36,10 +36,7 @@
     sharedNixpkgsConfig = {
       nixpkgs = {
         config.allowUnfree = true;
-        overlays = [
-          outputs.overlays.sharedPkgPins
-          outputs.overlays.sharedPkgAdditions
-        ];
+        overlays = builtins.attrValues outputs.overlays.shared;
       };
     };
   in {
@@ -74,7 +71,7 @@
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [
           sharedNixpkgsConfig
-          {nixpkgs.overlays = [outputs.overlays.gnome42PkgPins];}
+          {nixpkgs.overlays = builtins.attrValues outputs.overlays.gnome42;}
           nixvim.homeManagerModules.nixvim
           ./hosts/5CG2149Z4L/home.nix
         ];
