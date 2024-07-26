@@ -10,7 +10,6 @@
 
     home.packages = with pkgs; [
       gnomeExtensions.dash-to-dock
-      gnomeExtensions.pop-shell
     ];
 
     home.file.".local/share/backgrounds/wallpaper.png" = {

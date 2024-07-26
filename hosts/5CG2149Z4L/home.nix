@@ -16,7 +16,6 @@
       slack
       k9s
       azure-cli
-      gnomeExtensions.pop-shell
       terraform
       fluxcd
     ];

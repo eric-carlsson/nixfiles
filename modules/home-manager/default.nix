@@ -34,6 +34,7 @@
       gotools
       golangci-lint
       vscode
+      gnomeExtensions.pop-shell
     ];
 
     programs.firefox.enable = lib.mkDefault true;
