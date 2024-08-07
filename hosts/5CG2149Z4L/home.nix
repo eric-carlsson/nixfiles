@@ -18,6 +18,7 @@
       azure-cli
       terraform
       fluxcd
+      crossplane-cli
     ];
 
     home.pointerCursor = {
