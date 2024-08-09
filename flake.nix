@@ -12,9 +12,6 @@
     # Terraform 1.7.5
     nixpkgs-2bf9669.url = "github:nixos/nixpkgs/2bf96698281d49ec9002e180b577b19353c3d806";
 
-    # FluxCD 2.1.2
-    nixpkgs-3ec56f6.url = "github:nixos/nixpkgs/3ec56f6636c2753571cac4616a16743e0810b93e";
-
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
