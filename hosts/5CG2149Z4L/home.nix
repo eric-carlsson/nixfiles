@@ -15,7 +15,7 @@
       kubectl
       slack
       k9s
-      azure-cli
+      (azure-cli.withExtensions [azure-cli.extensions.aks-preview])
       terraform
       fluxcd
       crossplane-cli
