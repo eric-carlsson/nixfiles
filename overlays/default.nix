@@ -6,8 +6,10 @@
         system = final.system;
         config.allowUnfree = true;
       };
+      pkgs-unstable = import inputs.nixpkgs-unstable nixpkgsConfig;
     in {
-      vscode = (import inputs.nixpkgs-unstable nixpkgsConfig).vscode;
+      vscode = pkgs-unstable.vscode;
+      azure-cli = pkgs-unstable.azure-cli;
       terraform = (import inputs.nixpkgs-2bf9669 nixpkgsConfig).terraform;
     };
 
