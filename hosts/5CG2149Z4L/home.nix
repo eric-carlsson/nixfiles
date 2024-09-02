@@ -20,6 +20,7 @@
       fluxcd
       crossplane-cli
       drawio
+      xournalpp
     ];
 
     home.pointerCursor = {
