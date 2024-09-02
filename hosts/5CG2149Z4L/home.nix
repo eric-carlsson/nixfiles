@@ -19,6 +19,7 @@
       terraform
       fluxcd
       crossplane-cli
+      drawio
     ];
 
     home.pointerCursor = {
