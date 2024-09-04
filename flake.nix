@@ -9,9 +9,6 @@
     # Pop-shell for GNOME 42
     nixpkgs-e49db01.url = "github:nixos/nixpkgs/e49db01d2069ef3ed78d557c6ad6bd426b86d806";
 
-    # Terraform 1.7.5
-    nixpkgs-2bf9669.url = "github:nixos/nixpkgs/2bf96698281d49ec9002e180b577b19353c3d806";
-
     # Azure CLI 2.62
     nixpkgs-e081643.url = "github:nixos/nixpkgs/e0816431a23a06692d86c0b545b4522b9a9bc939";
 

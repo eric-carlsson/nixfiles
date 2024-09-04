@@ -10,7 +10,7 @@
     in {
       vscode = pkgs-unstable.vscode;
       azure-cli = (import inputs.nixpkgs-e081643 nixpkgsConfig).azure-cli;
-      terraform = (import inputs.nixpkgs-2bf9669 nixpkgsConfig).terraform;
+      terraform = pkgs-unstable.terraform;
     };
 
     additions = final: prev: import ../pkgs final.pkgs;
