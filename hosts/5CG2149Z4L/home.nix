@@ -21,6 +21,7 @@
       crossplane-cli
       drawio
       xournalpp
+      minikube
     ];
 
     home.pointerCursor = {
