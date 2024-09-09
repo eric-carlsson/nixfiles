@@ -22,6 +22,7 @@
       drawio
       xournalpp
       minikube
+      kind
     ];
 
     home.pointerCursor = {

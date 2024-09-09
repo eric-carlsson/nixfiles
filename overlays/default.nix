@@ -11,6 +11,7 @@
       vscode = pkgs-unstable.vscode;
       azure-cli = (import inputs.nixpkgs-e081643 nixpkgsConfig).azure-cli;
       terraform = pkgs-unstable.terraform;
+      kind = pkgs-unstable.kind;
     };
 
     additions = final: prev: import ../pkgs final.pkgs;
