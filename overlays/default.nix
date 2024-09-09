@@ -12,6 +12,7 @@
       azure-cli = (import inputs.nixpkgs-e081643 nixpkgsConfig).azure-cli;
       terraform = pkgs-unstable.terraform;
       kind = pkgs-unstable.kind;
+      clusterctl = pkgs-unstable.clusterctl;
     };
 
     additions = final: prev: import ../pkgs final.pkgs;

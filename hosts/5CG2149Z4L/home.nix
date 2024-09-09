@@ -23,6 +23,7 @@
       xournalpp
       minikube
       kind
+      clusterctl
     ];
 
     home.pointerCursor = {
