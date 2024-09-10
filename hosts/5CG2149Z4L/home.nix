@@ -21,7 +21,6 @@
       crossplane-cli
       drawio
       xournalpp
-      minikube
       kind
       clusterctl
     ];
