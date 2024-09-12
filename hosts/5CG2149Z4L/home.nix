@@ -36,6 +36,7 @@
       shellAliases = {
         t = "terraform";
         k = "kubectl";
+        d = "docker";
       };
 
       sessionVariables = {
@@ -46,6 +47,10 @@
         # Enable completion for kubectl (and "k" alias)
         source <(kubectl completion bash)
         complete -o default -F __start_kubectl k
+
+        # Enable completion for docker  (and "d" alias)
+        source <(docker completion bash)
+        complete -o default -F __start_docker d
 
         # make less more friendly for non-text input files, see lesspipe(1)
         [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
