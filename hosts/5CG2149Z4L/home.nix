@@ -23,6 +23,7 @@
       xournalpp
       kind
       clusterctl
+      jdk21_headless
     ];
 
     home.pointerCursor = {
