@@ -14,6 +14,7 @@
       kind = pkgs-unstable.kind;
       clusterctl = pkgs-unstable.clusterctl;
       go_1_23 = pkgs-unstable.go_1_23;
+      crossplane-cli = pkgs-unstable.crossplane-cli;
     };
 
     additions = final: prev: import ../pkgs final.pkgs;
