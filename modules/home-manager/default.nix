@@ -38,6 +38,7 @@
     ];
 
     programs.firefox.enable = lib.mkDefault true;
+    programs.chromium.enable = lib.mkDefault true;
     programs.home-manager.enable = lib.mkDefault true;
 
     bash.enable = lib.mkDefault true;
