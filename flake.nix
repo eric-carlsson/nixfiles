@@ -6,9 +6,6 @@
 
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Pop-shell for GNOME 42
-    nixpkgs-e49db01.url = "github:nixos/nixpkgs/e49db01d2069ef3ed78d557c6ad6bd426b86d806";
-
     # Azure CLI 2.62
     nixpkgs-e081643.url = "github:nixos/nixpkgs/e0816431a23a06692d86c0b545b4522b9a9bc939";
 
@@ -68,7 +65,6 @@
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [
           sharedNixpkgsConfig
-          {nixpkgs.overlays = builtins.attrValues outputs.overlays.gnome42;}
           nixvim.homeManagerModules.nixvim
           ./hosts/5CG2149Z4L/home.nix
         ];

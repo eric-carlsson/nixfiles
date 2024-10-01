@@ -113,10 +113,6 @@
     };
 
     dconf.settings = {
-      "org/gnome/desktop/interface" = {
-        gtk-theme = "Yaru-dark";
-      };
-
       # Customizations to Ubuntu flavoured dash-to-dock
       "org/gnome/shell/extensions/dash-to-dock" = {
         show-trash = false;

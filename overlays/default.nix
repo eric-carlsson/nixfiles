@@ -19,15 +19,4 @@
 
     additions = final: prev: import ../pkgs final.pkgs;
   };
-
-  # Overlays to support gnome42
-  gnome42 = {
-    pins = final: prev: {
-      gnomeExtensions =
-        prev.gnomeExtensions
-        // {
-          pop-shell = inputs.nixpkgs-e49db01.legacyPackages.${final.system}.gnomeExtensions.pop-shell;
-        };
-    };
-  };
 }
