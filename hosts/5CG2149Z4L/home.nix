@@ -123,8 +123,12 @@
         show-show-apps-button = false;
       };
 
-      # DING is enabled by default
-      "org/gnome/shell".disabled-extensions = ["ding@rastersoft.com"];
+      "org/gnome/shell".disabled-extensions = [
+        # DING is enabled by default on Ubuntu and conflicts with popshell
+        "ding@rastersoft.com"
+        # Tiling assistant/enhancing tiling is new to Ubuntu 24.04 and conflicts with popshell
+        "tiling-assistant@ubuntu.com"
+      ];
 
       "org/gnome/settings-daemon/plugins/media-keys" = {
         terminal = ["<Super>t"];
