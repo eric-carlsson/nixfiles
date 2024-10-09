@@ -14,7 +14,14 @@
       kind = pkgs-unstable.kind;
       clusterctl = pkgs-unstable.clusterctl;
       go_1_23 = pkgs-unstable.go_1_23;
-      crossplane-cli = pkgs-unstable.crossplane-cli;
+      crossplane-cli = pkgs-unstable.crossplane-cli.overrideAttrs (old: {
+        src = prev.fetchFromGitHub {
+          owner = "crossplane";
+          repo = "crossplane";
+          rev = "release-1.17";
+          hash = "sha256-Fr3lVVghnricQ5bOFVSQgbrJshC9r0159xsm0FLAiqQ=";
+        };
+      });
     };
 
     additions = final: prev: import ../pkgs final.pkgs;
