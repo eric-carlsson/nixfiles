@@ -24,6 +24,7 @@
       kind
       clusterctl
       jdk21_headless
+      act
     ];
 
     home.pointerCursor = {
