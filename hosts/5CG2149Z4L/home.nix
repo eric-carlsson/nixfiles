@@ -55,6 +55,9 @@
         source <(docker completion bash)
         complete -o default -F __start_docker d
 
+        # Enable completion for velero
+        source <(velero completion bash)
+
         # make less more friendly for non-text input files, see lesspipe(1)
         [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
