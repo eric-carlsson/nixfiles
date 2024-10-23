@@ -25,6 +25,7 @@
       clusterctl
       jdk21_headless
       act
+      velero
     ];
 
     home.pointerCursor = {

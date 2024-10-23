@@ -22,6 +22,7 @@
           hash = "sha256-Fr3lVVghnricQ5bOFVSQgbrJshC9r0159xsm0FLAiqQ=";
         };
       });
+      velero = pkgs-unstable.velero;
     };
 
     additions = final: prev: import ../pkgs final.pkgs;
