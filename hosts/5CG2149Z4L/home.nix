@@ -26,6 +26,7 @@
       jdk21_headless
       act
       velero
+      cilium-cli
     ];
 
     home.pointerCursor = {
