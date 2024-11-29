@@ -6,6 +6,7 @@
   imports = [
     ./bash.nix
     ./git.nix
+    ./k9s.nix
     ./neovim.nix
     ./tmux.nix
   ];

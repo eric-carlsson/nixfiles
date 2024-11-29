@@ -14,7 +14,6 @@
       kubernetes-helm
       kubectl
       slack
-      k9s
       (azure-cli.withExtensions [azure-cli.extensions.aks-preview azure-cli.extensions.k8s-extension azure-cli.extensions.quota])
       terraform
       fluxcd
@@ -28,6 +27,8 @@
       velero
       cilium-cli
     ];
+
+    k9s.enable = true;
 
     home.pointerCursor = {
       gtk.enable = true;
