@@ -4,7 +4,10 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Bootloader
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    configurationLimit = 20;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.luks.devices."luks-0c2d4121-e87f-4744-86a3-0e85a001e43d".device = "/dev/disk/by-uuid/0c2d4121-e87f-4744-86a3-0e85a001e43d";
 
