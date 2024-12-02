@@ -61,7 +61,7 @@
       lsp = {
         enable = true;
         servers = {
-          nil-ls = {
+          nil_ls = {
             enable = true;
             settings.formatting.command = ["alejandra"];
           };
@@ -100,6 +100,7 @@
         };
       };
       treesitter.enable = true;
+      web-devicons.enable = true;
     };
   };
 }
