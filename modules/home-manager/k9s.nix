@@ -20,48 +20,45 @@
 
     skins = {
       vscode-dark-plus = {
-        foreground = "&foreground '#cccccc'";
-        background = "&background '#1e1e1e'";
-
         k9s = {
           body = {
-            fgColor = "*foreground";
-            bgColor = "*background";
-            logoColor = "orange";
+            fgColor = "#cccccc";
+            bgColor = "#1e1e1e";
+            logoColor = "#ffd700";
           };
           prompt = {
-            fgColor = "cadetblue";
-            bgColor = "*background";
-            suggestColor = "dodgerblue";
+            fgColor = "yellow";
+            bgColor = "#1e1e1e";
+            suggestColor = "#569cd6";
           };
           info = {
-            fgColor = "orange";
-            sectionColor = "*foreground";
+            fgColor = "#ffd700";
+            sectionColor = "#cccccc";
           };
           dialog = {
-            fgColor = "*foreground";
-            bgColor = "*background";
+            fgColor = "#cccccc";
+            bgColor = "#1e1e1e";
             buttonFgColor = "black";
-            buttonBgColor = "dodgerblue";
+            buttonBgColor = "#569cd6";
             buttonFocusFgColor = "white";
-            buttonFocusBgColor = "fuchsia";
-            labelFgColor = "fuchsia";
-            fieldfgColor = "*foreground";
+            buttonFocusBgColor = "#c586c0";
+            labelFgColor = "#c586c0";
+            fieldfgColor = "#cccccc";
           };
           frame = {
             border = {
-              fgColor = "*foreground";
-              focusColor = "aqua";
+              fgColor = "#cccccc";
+              focusColor = "#9cdcfe";
             };
             menu = {
-              fgColor = "white";
-              keyColor = "dodgerblue";
-              numKeyColor = "fuchsia";
+              fgColor = "#cccccc";
+              keyColor = "#569cd6";
+              numKeyColor = "#c586c0";
             };
             crumbs = {
-              fgColor = "black";
-              bgColor = "steelblue";
-              activeColor = "orange";
+              fgColor = "#1e1e1e";
+              bgColor = "#569cd6";
+              activeColor = "#ffd700";
             };
             status = {
               newColor = "lightskyblue";
@@ -69,20 +66,20 @@
               addColor = "white";
               errorColor = "orangered";
               pendingColor = "darkorange";
-              highlightColor = "aqua";
+              highlightColor = "orange";
               killColor = "mediumpurple";
               completedColor = "gray";
             };
             title = {
-              fgColor = "aqua";
-              highlightColor = "fuchsia";
-              counterColor = "papayawhip";
-              filterColor = "steelblue";
+              fgColor = "#9cdcfe";
+              highlightColor = "#c586c0";
+              counterColor = "#dcdcaa";
+              filterColor = "#c8c8c8";
             };
           };
           views = {
             charts = {
-              bgColor = "*background";
+              bgColor = "#1e1e1e";
               defaultDialColors = [
                 "linegreen"
                 "orangered"
@@ -93,37 +90,37 @@
               ];
             };
             table = {
-              fgColor = "blue";
-              bgColor = "*background";
-              cursorFgColor = "black";
-              cursorBgColor = "aqua";
+              fgColor = "#9cdcfe";
+              bgColor = "#1e1e1e";
+              cursorFgColor = "#1e1e1e";
+              cursorBgColor = "#9cdcfe";
               markColor = "darkgoldenrod";
               header = {
-                fgColor = "white";
-                bgColor = "*background";
-                sorterColor = "orange";
+                fgColor = "#cccccc";
+                bgColor = "#1e1e1e";
+                sorterColor = "#ffd700";
               };
             };
             xray = {
-              fgColor = "blue";
-              bgColor = "*background";
-              cursorColor = "aqua";
+              fgColor = "#9cdcfe";
+              bgColor = "#1e1e1e";
+              cursorColor = "#9cdcfe";
               graphicColor = "darkgoldenrod";
               showIcons = false;
             };
             yaml = {
-              keyColor = "steelblue";
+              keyColor = "#c8c8c8";
               colonColor = "white";
-              valueColor = "papayawhip";
+              valueColor = "#dcdcaa";
             };
             logs = {
-              fgColor = "white";
-              bgColor = "*background";
+              fgColor = "#cccccc";
+              bgColor = "#1e1e1e";
               indicator = {
-                fgColor = "*foreground";
-                bgColor = "*background";
-                toggleOnColor = "papayawhip";
-                toggleOffColor = "steelblue";
+                fgColor = "#cccccc";
+                bgColor = "#1e1e1e";
+                toggleOnColor = "#dcdcaa";
+                toggleOffColor = "#c8c8c8";
               };
             };
           };
