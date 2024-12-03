@@ -109,9 +109,9 @@
               showIcons = false;
             };
             yaml = {
-              keyColor = "#c8c8c8";
-              colonColor = "white";
-              valueColor = "#dcdcaa";
+              keyColor = "#569cd6";
+              colonColor = "#569cd6";
+              valueColor = "#cccccc";
             };
             logs = {
               fgColor = "#cccccc";
