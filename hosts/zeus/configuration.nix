@@ -30,7 +30,6 @@
 
   networking = {
     hostName = "zeus";
-    useDHCP = true;
     networkmanager.enable = true;
   };
 
