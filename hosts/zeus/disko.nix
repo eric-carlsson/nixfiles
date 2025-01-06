@@ -32,27 +32,27 @@
         };
       };
     };
-  };
-  lvm_vg = {
-    pool = {
-      type = "lvm_vg";
-      lvs = {
-        swap = {
-          size = "4G";
-          content = {
-            type = "swap";
-            discardPolicy = "both";
+    lvm_vg = {
+      pool = {
+        type = "lvm_vg";
+        lvs = {
+          swap = {
+            size = "4G";
+            content = {
+              type = "swap";
+              discardPolicy = "both";
+            };
           };
-        };
-        root = {
-          size = "100%";
-          content = {
-            type = "filesystem";
-            format = "ext4";
-            mountpoint = "/";
-            mountOptions = [
-              "defaults"
-            ];
+          root = {
+            size = "100%";
+            content = {
+              type = "filesystem";
+              format = "ext4";
+              mountpoint = "/";
+              mountOptions = [
+                "defaults"
+              ];
+            };
           };
         };
       };
