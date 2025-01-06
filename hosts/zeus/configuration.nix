@@ -1,16 +1,41 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  modulesPath,
+  ...
+}: {
+  # Hardware configuration
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
+
+  boot = {
+    kernelModules = ["kvm-intel"];
+    extraModulePackages = [];
+    initrd = {
+      availableKernelModules = ["xhci_pci" "nvme"];
+      kernelModules = [];
+    };
+    loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 20;
+      };
+      efi.canTouchEfiVariables = true;
+    };
+  };
+
+  nixpkgs.hostPlatform = "x86_64-linux";
+  hardware.cpu.intel.updateMicrocode = config.hardware.enableRedistributableFirmware;
+
+  networking = {
+    hostName = "zeus";
+    useDHCP = true;
+    networkmanager.enable = true;
+  };
+
   system.stateVersion = "24.11";
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  # Bootloader
-  boot.loader.systemd-boot = {
-    enable = true;
-    configurationLimit = 20;
-  };
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "zeus";
-  networking.networkmanager.enable = true;
 
   # Timezone and locale
   time.timeZone = "Europe/Stockholm";
@@ -59,7 +84,6 @@
   };
 
   programs.dconf.enable = true;
-
   programs.steam.enable = true;
 
   environment.systemPackages = with pkgs; [
