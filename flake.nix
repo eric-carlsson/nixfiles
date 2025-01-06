@@ -9,6 +9,9 @@
     # Azure CLI 2.62
     nixpkgs-e081643.url = "github:nixos/nixpkgs/e0816431a23a06692d86c0b545b4522b9a9bc939";
 
+    disko.url = "github:nix-community/disko/master";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -19,6 +22,7 @@
   outputs = {
     self,
     nixpkgs,
+    disko,
     home-manager,
     nixvim,
     ...
@@ -54,6 +58,25 @@
                 nixvim.homeManagerModules.nixvim
               ];
               users.eric = import ./hosts/hades/home.nix;
+            };
+          }
+        ];
+      };
+      zeus = nixpkgs.lib.nixosSystem {
+        modules = [
+          sharedNixpkgsConfig
+          ./hosts/zeus/configuration.nix
+          disko.nixosModules.disko
+          ./hosts/zeus/disko.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              sharedModules = [
+                nixvim.homeManagerModules.nixvim
+              ];
+              users.eric = import ./hosts/zeus/home.nix;
             };
           }
         ];
