@@ -69,6 +69,9 @@
           home-manager.nixosModules.home-manager
           ./hosts/zeus
         ];
+        specialArgs = {
+          inherit nixvim;
+        };
       };
     };
 
