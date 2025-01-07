@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  imports = [../hardware-configuration.nix];
+  imports = [./hardware-configuration.nix];
 
   config = {
     system.stateVersion = "24.11";
