@@ -20,7 +20,7 @@
             size = "100%";
             content = {
               type = "luks";
-              name = "crypt";
+              name = "crypted";
               askPassword = true;
               settings.allowDiscards = true;
               content = {

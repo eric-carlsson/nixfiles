@@ -65,20 +65,9 @@
       zeus = nixpkgs.lib.nixosSystem {
         modules = [
           sharedNixpkgsConfig
-          ./hosts/zeus/configuration.nix
           disko.nixosModules.disko
-          ./hosts/zeus/disko.nix
           home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              sharedModules = [
-                nixvim.homeManagerModules.nixvim
-              ];
-              users.eric = import ./hosts/zeus/home.nix;
-            };
-          }
+          ./hosts/zeus
         ];
       };
     };
