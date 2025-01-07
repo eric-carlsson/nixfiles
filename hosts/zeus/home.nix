@@ -3,18 +3,20 @@
   nixvim,
   ...
 }: {
-  imports = [
-    ../../modules/home-manager/default.nix
-  ];
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
 
-  config = {
-    home-manager = {
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      sharedModules = [
-        nixvim.homeManagerModules.nixvim
+    sharedModules = [
+      nixvim.homeManagerModules.nixvim
+    ];
+
+    users.eric = {
+      imports = [
+        ../../modules/home-manager/default.nix
       ];
-      users.eric = {
+
+      config = {
         home.stateVersion = "24.11";
         home.username = "eric";
         home.homeDirectory = "/home/eric";
