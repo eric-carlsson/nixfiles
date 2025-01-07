@@ -48,19 +48,12 @@
       hades = nixpkgs.lib.nixosSystem {
         modules = [
           sharedNixpkgsConfig
-          ./hosts/hades/configuration.nix
           home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              sharedModules = [
-                nixvim.homeManagerModules.nixvim
-              ];
-              users.eric = import ./hosts/hades/home.nix;
-            };
-          }
+          ./hosts/hades
         ];
+        specialArgs = {
+          inherit nixvim;
+        };
       };
       zeus = nixpkgs.lib.nixosSystem {
         modules = [
