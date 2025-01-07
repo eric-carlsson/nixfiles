@@ -3,6 +3,6 @@
     ./configuration.nix
     ./disk-configuration.nix
     ./hardware-configuration.nix
-    ./home-configuration.nix
+    ./home.nix
   ];
 }
