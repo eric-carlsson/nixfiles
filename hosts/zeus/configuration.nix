@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   system.stateVersion = "24.11";
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -15,6 +19,19 @@
   networking = {
     hostName = "zeus";
     networkmanager.enable = true;
+  };
+
+  # Graphics drivers
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   # Timezone and locale
