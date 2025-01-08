@@ -1,4 +1,8 @@
-{nixvim, ...}: {
+{
+  nixvim,
+  pkgs,
+  ...
+}: {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -17,6 +21,11 @@
           stateVersion = "24.11";
           username = "eric";
           homeDirectory = "/home/eric";
+
+          packages = with pkgs; [
+            spotify
+            bitwarden-desktop
+          ];
         };
 
         nixos.enable = true;

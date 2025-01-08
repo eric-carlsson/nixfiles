@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{config, ...}: {
   imports = [
     ../../modules/nixos
   ];
@@ -33,9 +29,5 @@
     };
 
     programs.steam.enable = true;
-
-    environment.systemPackages = with pkgs; [
-      bitwarden
-    ];
   };
 }
