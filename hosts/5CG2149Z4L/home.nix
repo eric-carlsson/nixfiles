@@ -26,6 +26,7 @@
       act
       velero
       cilium-cli
+      hubble
     ];
 
     k9s.enable = true;
