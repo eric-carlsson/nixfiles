@@ -8,6 +8,9 @@
 
     networking.hostName = "zeus";
 
+    # disable apst for kingston nvme
+    boot.kernelParams = ["nvme_core.default_ps_max_latency_us=0"];
+
     # Graphics drivers
     hardware.graphics.enable = true;
     services.xserver.videoDrivers = ["nvidia"];
