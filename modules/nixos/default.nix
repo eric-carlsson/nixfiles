@@ -71,6 +71,8 @@
 
     programs.dconf.enable = true;
 
+    services.fwupd.enable = true;
+
     documentation.nixos.enable = false;
   };
 }
