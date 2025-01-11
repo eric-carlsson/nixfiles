@@ -18,6 +18,8 @@
       };
     };
 
+    gnome-spotlight.enable = lib.mkDefault true;
+
     dconf = {
       enable = true;
       settings = {

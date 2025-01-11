@@ -6,6 +6,7 @@
   imports = [
     ./bash.nix
     ./git.nix
+    ./gnome-spotlight.nix
     ./k9s.nix
     ./neovim.nix
     ./nixos.nix
