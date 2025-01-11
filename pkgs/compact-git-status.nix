@@ -4,7 +4,7 @@
 }:
 buildGoModule rec {
   pname = "compact-git-status";
-  version = "3aafad1310513395c8b93c0a38058c5116e9c296";
+  version = "main";
 
   src = fetchFromGitHub {
     owner = "eric-carlsson";
@@ -14,9 +14,4 @@ buildGoModule rec {
   };
 
   vendorHash = null;
-
-  meta = {
-    description = "Utility for printing compact git status";
-    mainProgram = "compact-git-status";
-  };
 }
