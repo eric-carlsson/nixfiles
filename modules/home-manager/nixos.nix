@@ -11,11 +11,6 @@
       packages = with pkgs; [
         gnomeExtensions.dash-to-dock
       ];
-
-      file.".local/share/backgrounds/wallpaper.png" = {
-        source = ./wallpaper.png;
-        recursive = true;
-      };
     };
 
     gnome-spotlight.enable = lib.mkDefault true;
@@ -46,21 +41,6 @@
           custom-keybindings = [
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
           ];
-        };
-
-        "org/gnome/desktop/background" = {
-          picture-uri = "file:///home/eric/.local/share/backgrounds/wallpaper.png";
-          picture-uri-dark = "file:///home/eric/.local/share/backgrounds/wallpaper.png";
-          picture-options = "zoom";
-          color-shading-type = "solid";
-          primary-color = "#000000000000";
-          secondary-color = "#000000000000";
-        };
-
-        "org/gnome/desktop/screensaver" = {
-          picture-uri = "file:///home/eric/.local/share/backgrounds/wallpaper.png";
-          primary-color = "#000000000000";
-          secondary-color = "#000000000000";
         };
       };
     };
