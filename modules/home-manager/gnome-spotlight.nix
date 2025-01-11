@@ -14,6 +14,12 @@ in {
       description = "number of old wallpapers to preserved";
       default = 3;
     };
+
+    schedule = lib.mkOption {
+      type = lib.types.nonEmptyStr;
+      description = "schedule for systemd timer";
+      default = "weekly";
+    };
   };
 
   config = lib.mkIf config.gnome-spotlight.enable {
@@ -34,7 +40,7 @@ in {
       };
 
       Timer = {
-        OnCalendar = "weekly";
+        OnCalendar = cfg.schedule;
         AccuracySec = "6h";
         Persistent = true;
         Unit = "gnome-spotlight.service";
