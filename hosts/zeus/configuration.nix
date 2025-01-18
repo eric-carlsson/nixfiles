@@ -14,6 +14,9 @@
 
     boot.kernelPackages = pkgs.linuxPackages_6_12;
 
+    # blacklist nvidia gpu usb-c kernel module since card has none
+    boot.blacklistedKernelModules = ["i2c_nvidia_gpu"];
+
     # Graphics drivers
     hardware.graphics.enable = true;
     services.xserver.videoDrivers = ["nvidia"];
