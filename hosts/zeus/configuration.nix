@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ../../modules/nixos
   ];
@@ -8,12 +12,7 @@
 
     networking.hostName = "zeus";
 
-    # disable apst for kingston nvme
-    boot.kernelParams = ["nvme_core.default_ps_max_latency_us=0"];
-
-    # workaround for issue with suspend when kvm is enabled
-    # see https://github.com/NixOS/nixpkgs/issues/369376
-    systemd.services.systemd-suspend.environment.SYSTEMD_SLEEP_FREEZE_USER_SESSIONS = "false";
+    boot.kernelPackages = pkgs.linuxPackages_6_12;
 
     # Graphics drivers
     hardware.graphics.enable = true;
