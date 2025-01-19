@@ -25,6 +25,8 @@
           packages = with pkgs; [
             spotify
             bitwarden-desktop
+            nexusmods-app-unfree
+            protontricks
           ];
         };
 

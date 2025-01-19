@@ -26,6 +26,7 @@
             };
           });
         };
+      nexusmods-app-unfree = pkgs-unstable.nexusmods-app-unfree;
     };
 
     additions = final: prev: import ../pkgs final.pkgs;
