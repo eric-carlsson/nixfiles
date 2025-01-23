@@ -30,6 +30,7 @@
     ];
 
     k9s.enable = true;
+    gnome-spotlight.enable = true;
 
     home.pointerCursor = {
       gtk.enable = true;
