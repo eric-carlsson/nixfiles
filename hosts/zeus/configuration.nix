@@ -12,6 +12,8 @@
 
     networking.hostName = "zeus";
 
+    networking.networkmanager.wifi.powersave = false;
+
     boot.kernelPackages = pkgs.linuxPackages_6_12;
 
     # blacklist nvidia gpu usb-c kernel module since card has none
