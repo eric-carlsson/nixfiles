@@ -30,8 +30,10 @@ in {
         Description = "Randomize desktop wallpaper with gnome-spotlight";
       };
       Service = {
-        Environment = [ "PATH=${lib.makeBinPath [ pkgs.dconf ]}" ];
+        Environment = ["PATH=${lib.makeBinPath [pkgs.dconf]}"];
         ExecStart = "${pkgs.gnome-spotlight}/bin/gnome-spotlight -preserve ${toString cfg.preserve}";
+        Restart = "on-failure";
+        RestartSec = "5";
       };
     };
 
