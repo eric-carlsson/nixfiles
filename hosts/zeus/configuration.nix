@@ -14,6 +14,12 @@
 
     networking.networkmanager.wifi.powersave = false;
 
+    services.logind.extraConfig = ''
+      HandleLidSwitch=ignore
+      HandleLidSwitchExternalPower=ignore
+      HandleLidSwitchDocked=ignore
+    '';
+
     boot.kernelPackages = pkgs.linuxPackages_6_12;
 
     # blacklist nvidia gpu usb-c kernel module since card has none
