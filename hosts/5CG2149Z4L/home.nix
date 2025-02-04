@@ -27,6 +27,7 @@
       velero
       cilium-cli
       hubble
+      nodejs_22
     ];
 
     k9s.enable = true;
