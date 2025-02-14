@@ -18,7 +18,7 @@ in {
     schedule = lib.mkOption {
       type = lib.types.nonEmptyStr;
       description = "schedule for systemd timer";
-      default = "weekly";
+      default = "daily";
     };
   };
 
