@@ -28,6 +28,7 @@
       cilium-cli
       hubble
       nodejs_22
+      obsidian
     ];
 
     k9s.enable = true;
