@@ -29,6 +29,7 @@
       hubble
       nodejs_22
       obsidian
+      yq-go
     ];
 
     k9s.enable = true;
