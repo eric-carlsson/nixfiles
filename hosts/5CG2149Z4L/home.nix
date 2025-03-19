@@ -30,6 +30,7 @@
       nodejs_22
       obsidian
       yq-go
+      vale
     ];
 
     k9s.enable = true;
