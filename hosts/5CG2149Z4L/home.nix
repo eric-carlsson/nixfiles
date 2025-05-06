@@ -31,6 +31,7 @@
       obsidian
       yq-go
       vale
+      markdownlint-cli2
     ];
 
     k9s.enable = true;
