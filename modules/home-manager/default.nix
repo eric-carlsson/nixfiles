@@ -33,7 +33,7 @@
       xsel
       ripgrep
       fd
-      go_1_23
+      go_1_24
       gotools
       golangci-lint
       vscode
