@@ -32,6 +32,7 @@
       yq-go
       vale
       markdownlint-cli2
+      yamllint
     ];
 
     k9s.enable = true;
