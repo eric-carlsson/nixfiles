@@ -15,6 +15,7 @@
       "pf" = "push --force-with-lease";
       "fm" = "fetch origin main:main";
       "rbm" = "rebase main";
+      "rbma" = "rebase main --autosquash";
     };
 
     extraConfig = {
