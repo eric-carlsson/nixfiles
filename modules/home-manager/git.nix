@@ -16,6 +16,7 @@
       "fm" = "fetch origin main:main";
       "rbm" = "rebase main";
       "rbma" = "rebase main --autosquash";
+      "cf" = "commit --fixup HEAD";
     };
 
     extraConfig = {
