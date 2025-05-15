@@ -68,6 +68,9 @@
         # Enable completion for velero
         source <(velero completion bash)
 
+        # Enable completion for git absorb
+        source <(git absorb --gen-completions bash)
+
         # make less more friendly for non-text input files, see lesspipe(1)
         [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
