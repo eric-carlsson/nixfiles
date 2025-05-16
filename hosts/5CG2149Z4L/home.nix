@@ -13,6 +13,7 @@
       kubelogin
       kubernetes-helm
       kubectl
+      kubectl-validate
       slack
       (azure-cli.withExtensions [azure-cli.extensions.aks-preview azure-cli.extensions.k8s-extension azure-cli.extensions.quota])
       terraform
